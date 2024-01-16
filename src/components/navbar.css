@@ -1,0 +1,40 @@
+.navbar {
+    background-color: #3333334d;
+    overflow: hidden;
+    padding: 10px;
+   }
+   
+   .navbar img {
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+   }
+   
+   .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   }
+   
+   .navbar li {
+    float: left;
+    padding: 7px 40px;
+    border: 2px solid black;
+    margin: 20px;
+   }
+   
+   .navbar li Link {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border: 2px solid black;
+   }
+   
+   .navbar li a:hover {
+    background-color: #ddd;
+    color: black;
+   }
