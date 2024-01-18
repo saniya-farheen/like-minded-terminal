@@ -1,13 +1,32 @@
 import React,{useEffect, useState} from 'react';
 import Logo from './logo.png';
 import './signup.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify';
+
 export default function SignUp() {
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [username,setUserName] = useState('');
     const[password,setPassword] = useState('');
+   
+     //toast function
+      const notifyA = (msg)=> toast.error(msg)
+      const notifyB = (msg)=> toast.success(msg)
+      
+      const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+
     const postData =() =>{
+      //checking email
+      if(!emailRegex.test(email)){
+        notifyA("Invalid email")
+        return;
+      }else if(!passRegex.test(password)){
+           notifyA("password must contain atleast 8 characters, including atleast one number and include both uppercase and lowercase letters and special character for example #,?,!");
+           return;
+      }
     
     
       //sending data to server
@@ -23,9 +42,18 @@ export default function SignUp() {
          password:password
         }),
       }).then(res=>res.json())
-      .then(data =>{console.log(data)})
+      .then(data => {
+        if(data.error){
+        notifyA(data.error)
+        }
+        else{
+          notifyB(data.messege)
+          navigate("/signin")
+        }
+      })
       .catch((error) => {
         console.error("Error:", error);
+        notifyA("An error occurred while processing your request");
         // Handle the error here
       });
     };
