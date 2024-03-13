@@ -1,0 +1,117 @@
+3.local conflict
+{
+while in master branch create file
+then create 2 branches using
+git branch f1
+git branch f2
+
+go to f1
+git checkout f1
+
+vim file.txt
+make some change
+git add file.txt
+git commit -m ""
+
+git checkout f2
+
+vim file.txt
+make some different change
+git add file.txt
+git commit -m ""
+
+git merge f1
+to solve merge conflict
+git mergetool
+
+git commit -m ""
+}
+
+4.global conflict
+{
+create folder f1
+-git init
+-git remote add origin "repo link http"
+-git pull origin main
+-ls 
+-vim Readme.md
+-git add .
+-git commit -m "conf1"
+-git branch -m "main"
+-git push origin main
+
+
+f2->same as f1
+f2->git push origin main
+conflict->>>  f2-> git pull --rebase origin main
+                -  git mergetool
+                -  git rebase --continue
+git push origin main
+}
+
+
+
+
+5.diff command
+git diff
+git diff --staged (diff between working area and staging area)
+git diff branch1 branch2 ( diff between 2 branch)
+
+reverting a commit:
+
+git log
+git checkout <old commit> filename
+
+
+6.ssh client
+
+$ eval $(ssh-agent -s)
+Agent pid 777
+$ ssh-keygen -t rsa -b 4096 -C "saniyafarheen188@gmail.com"
+
+(Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/sumay/.ssh/id_rsa):
+Created directory '/c/Users/sumay/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/sumay/.ssh/id_rsa
+Your public key has been saved in /c/Users/sumay/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:L6CEqOXYCOaGzNllIB1tLu55o5avpzyPw6jacfb0t68 saniyafarheen188@gmail.com
+The key's randomart image is:
++---[RSA 4096]----+
+|   ..            |
+|  . .o           |
+| . oo            |
+| ..o..           |
+|o.+ oo. S        |
+|O*ooo. . .       |
+|=*B.* . . .      |
+|.o.%.* . ..      |
+|= o*@oo ..E+.    |
++----[SHA256]-----+
+
+$cat /c/Users/sumay/.ssh/id_rsa.pub  #copy the public key
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDQz5N0Iv9LfmMJtsFPD48w2xBhbf3RKUKN0MO7F6qIy09C7/wumdN1wpMYy3dVYkl2Kxec6CeUqH18yNmYJU5T4hXEJPTBWJ6oAIiM6OuZrFRGEzdlPA0SCBB/q2hOPtcxXyFvBFTO+V1LymzfyNsdA0qdVyD0J4tjsztjSF5GSlZYk4JSCu3jnRrCricEYKG9OrpsDY2SP4++XzHROtmDNHlmZOfjMuS6lOEG5gfpI7roiLk4yBYe+2/hfpw50KfKXqDg8Tk1WOOb0mmSZHmIgEUHyNOsOW6otNYd7FSDrqIb/RNwuaJvodiSQ6aj9EW1s5h54LaBH1b+zNio+lnGZghMfB6YUZHRxvIxM46dKaebewJlhi2yzixRgNofilYBZT6O4780IpPnS/kcH3oArWjP/IWqV09ESOz7qMdYDL7vLCJ+rByV2NuYlSfYU2B/1+/8Us5W93cX+BwTGuw+9AbbuqAOwlp6zuxffvMOaWyQgAyQm3ebcfHuCJAs4hFYfMZc6dWcYX1DUY1JeDdrR8wXbDF3hednPjSIQUpHppyNZOmjuPQqsq88J4pQ== saniyafarheen188@gmail.com
+
+#copy this above output
+#go to github open settings
+#click on ssh and gps keys
+#click on new ssh key
+#enter the title name
+#paste the above outputt
+
+#go to git bash 
+$ssh-add  /c/Users/sumay/.ssh/id_rsa   #it will be saved in the above output identification is saved in--
+
+$ssh -T git@github.com
+
+The authenticity of host 'github.com (20.207.73.82)' ca
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[f
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added 'github.com' (ED25519) to th
+Hi saniya-farheen! You've successfully authenticated, b
+
