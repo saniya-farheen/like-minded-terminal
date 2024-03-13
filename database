@@ -15,3 +15,22 @@ docker login
  docker tag nginx username/nginx-image       #tag image with dockerhub
 
 docker push  username/nginx-image            #push image to docker
+
+
+5. creat docker file
+mkdir 
+mkdir cd 
+cat > Dockerfile
+
+go to the location 
+open in VS code
+FROM ubuntu
+MAINTAINER saniyafarheen188 saniyafarheen188@gmail.com
+RUN apt-get update
+CMD ["echo"," hello world"]
+
+
+go to command prompt 
+docker build -t wq:t
+docker build -t wq:t .
+docker run wq:t
