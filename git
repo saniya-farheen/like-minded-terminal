@@ -115,3 +115,58 @@ Please type 'yes', 'no' or the fingerprint: yes
 Warning: Permanently added 'github.com' (ED25519) to th
 Hi saniya-farheen! You've successfully authenticated, b
 
+4. basic git codes
+git using git 
+
+1. first to configure git to particular name and mail
+
+$git config --global user.name "saniya-farheen"
+$git config --global user.email "saniyafarheen188@gmail.com"
+$git config --list
+$git init
+$git remote add origin "<github repository link>"
+$git pull origin main branch
+#now we pull data from git hub
+#create a new text file 
+cat >>san.txt
+<enter data>
+$git add "<filename>" #add file to staging area
+$git add -A #add multiple files into the staging area
+$git status # shows untracked files
+$git commit -m "<any kind of messege>"
+$git log #shows the history
+$ commit -a -m #when previously added file in staging area
+# for thr warning try this
+$git config core.autocrlf true
+
+
+
+
+to send local file to git repo
+
+git init
+git remote add origin <link>
+git remote -v  (to vrify remote)
+git branch      (to check branch)
+git branch -M main (to rename branch)
+git push origin main
+
+
+ 
+LAB -2
+HOW TO REVERT BACK TO THE PREVIOUS VERSION
+#create file revert.txt
+#commit the file 
+$git log
+#copy recently modified ID number 
+$ git checkout '<IDnumber>' <file name>
+#it will show updated path
+
+LAB -3 Branching
+$git branch 
+$git branch fbranch
+$git checkout fbranch 
+$git commit 
+#add a file in the branch
+$ git merge fbranch 
+
