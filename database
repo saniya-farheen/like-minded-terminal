@@ -1,0 +1,17 @@
+1.To pull the image
+open command prompt 
+docker --version          #to check docker
+docker run hello-world    #to pull helloworld command first
+docker images             #it will show all the images present in a docker
+docker pull ubuntu        #pull ubuntu image from docker hub
+docker run -it -d ubuntu  #run the image and create a container of the image
+docker ps -a
+
+2.To push image from docker
+   docker pull nginx   #pull an existing Docker image from Docker Hub
+   docker run -d --name my-nginx-container nginx   #create a Docker container from the pulled image.
+ docker stop my-nginx-container               #to stop the running container
+docker login 
+ docker tag nginx username/nginx-image       #tag image with dockerhub
+
+docker push  username/nginx-image            #push image to docker
